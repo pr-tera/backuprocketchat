@@ -23,15 +23,34 @@ namespace backuprocketchat
                 return false;
             }
         }
-        internal static bool DeletFile(string path)
+        internal static bool ExistFile(string path)
         {
             try
             {
                 FileInfo file = new FileInfo(path);
                 if (file.Exists)
                 {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        internal static bool DeletFile(string path)
+        {
+            try
+            {
+                FileInfo file = new FileInfo(path);
+                if (ExistFile(path) == true)
+                {
                     file.Delete();
-                    if (!file.Exists)
+                    if (ExistFile(path) == false)
                     {
                         return true;
                     }

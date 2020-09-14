@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace backuprocketchat
+﻿namespace backuprocketchat
 {
     class Program
     {
@@ -12,29 +10,29 @@ namespace backuprocketchat
                 {
                     if (SortBackup.SortB() == true)
                     {
-                        //запись лога что всё ок 
+                        Data.Log += $"{Data.DateTimeNow} Старые бекапы удалены\n";
                     }
                     else
-                    { 
-                        //не удалось удалить бекап
+                    {
+                        Data.Log += $"{Data.DateTimeNow} Не удалось удалить старые бекапы\n";
                     }
                     if (SortBackup.SortF() == true)
                     {
-                        //запись лога что всё ок
+                        Data.Log += $"{Data.DateTimeNow} Прикреплённые файлы очищенны\n";
                     }
                     else
-                    { 
-                        //не удалось удалить файл
+                    {
+                        Data.Log +=  $"{Data.DateTimeNow} Не удалось удалить прикреплённые файлы\n";
                     }
                 }
                 else
-                { 
-                    //запись лога
+                {
+                    Data.Log += $"{Data.DateTimeNow}Не удалось выполнить резервное копирование\n";
                 }
             }
             else
-            { 
-                //попытка монтировать папку.
+            {
+                Data.Log += $"{Data.DateTimeNow} Папка не доступна\n";
             }
         }
     }

@@ -57,7 +57,14 @@ namespace backuprocketchat
                 {
                     if (IO.DeletFile(backup.FullName) == true)
                     {
-                        _return = true;
+                        if (IO.ExistFile(backup.FullName) == false)
+                        {
+                            _return = true;
+                        }
+                        else
+                        {
+                            _return = false;
+                        }
                     }
                     else
                     {
